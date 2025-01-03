@@ -54,6 +54,18 @@ public class DepartamentService {
 		return new DepartamentDTO(entity);
 	}
 
+	
+	public void delete(UUID id) {
+		if(!repository.existsById(id)) {
+			throw new ResourceNotFoundException("Id Não existe");
+		}else {
+			
+			repository.deleteById(id);
+		}
+		
+		
+		
+	}
 
 	private void copyEntityToDto(DepartamentDTO dto,Departament entity) {
 		  entity.setName(dto.getName());
