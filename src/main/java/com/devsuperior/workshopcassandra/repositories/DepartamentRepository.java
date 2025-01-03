@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.cassandra.repository.CassandraRepository;
 
-import com.devsuperior.workshopcassandra.model.entities.Department;
+import com.devsuperior.workshopcassandra.model.entities.Departament;
 
-public interface DepartamentRepository extends CassandraRepository<Department,UUID> {
+public interface DepartamentRepository extends CassandraRepository<Departament,UUID> {
 
 }

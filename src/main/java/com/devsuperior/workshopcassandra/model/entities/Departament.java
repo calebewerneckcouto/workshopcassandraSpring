@@ -6,16 +6,16 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 @Table(value = "departments")
-public class Department {
+public class Departament {
 
 	@PrimaryKey
 	private UUID id;
 	private String name;
 	
-	public Department() {
+	public Departament() {
 	}
 	
-	public Department(UUID id, String name) {
+	public Departament(UUID id, String name) {
 		this.id = id;
 		this.name = name;
 	}

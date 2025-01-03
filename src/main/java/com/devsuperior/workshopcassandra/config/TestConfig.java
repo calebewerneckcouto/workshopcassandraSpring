@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.devsuperior.workshopcassandra.model.embedded.Prop;
-import com.devsuperior.workshopcassandra.model.entities.Department;
+import com.devsuperior.workshopcassandra.model.entities.Departament;
 import com.devsuperior.workshopcassandra.model.entities.Product;
 import com.devsuperior.workshopcassandra.model.enums.PropType;
 import com.devsuperior.workshopcassandra.repositories.DepartamentRepository;
@@ -22,7 +22,7 @@ import jakarta.annotation.PostConstruct;
 public class TestConfig {
 
 	@Autowired
-	private DepartamentRepository departmentRepository;
+	private DepartamentRepository departamentRepository;
 	
 	@Autowired
 	private ProductRepository productRepository;
@@ -30,14 +30,14 @@ public class TestConfig {
 	@PostConstruct
 	public void init() {
 		
-		departmentRepository.deleteAll();
+		departamentRepository.deleteAll();
 		productRepository.deleteAll();
 
-		Department d1 = new Department(UUID.randomUUID(), "Livros");
-		Department d2 = new Department(UUID.randomUUID(), "Computadores");
-		Department d3 = new Department(UUID.randomUUID(), "Jogos");
+		Departament d1 = new Departament(UUID.randomUUID(), "Livros");
+		Departament d2 = new Departament(UUID.randomUUID(), "Computadores");
+		Departament d3 = new Departament(UUID.randomUUID(), "Jogos");
 
-		departmentRepository.saveAll(Arrays.asList(d1, d2, d3));
+		departamentRepository.saveAll(Arrays.asList(d1, d2, d3));
 
 		Product p1 = new Product(UUID.randomUUID(), d1.getName(), 180.90, Instant.parse("2021-02-25T10:00:00Z"), "O Senhor dos anéis", "Um conjunto de amigos se unem para combater uma grande ameaça na Terra Média");
 		p1.getProps().add(new Prop("Páginas", "1055", PropType.PRODUCT));
