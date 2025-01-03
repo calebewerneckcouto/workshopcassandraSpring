@@ -29,5 +29,20 @@ public class DepartamentService {
 		Departament entity = result.orElseThrow(()-> new ResourceNotFoundException("Id não encontrado"));
 		return new DepartamentDTO(entity);
 	}
+	
+	
+	public DepartamentDTO insert(DepartamentDTO dto) {
+		Departament entity = new Departament();
+		entity.setId(UUID.randomUUID());
+		copyEntityToDto(dto,entity);
+		entity= repository.save(entity);
+		return new DepartamentDTO(entity);
+	}
+
+
+	private void copyEntityToDto(DepartamentDTO dto,Departament entity) {
+		  entity.setName(dto.getName());
+		
+	}
 
 }
