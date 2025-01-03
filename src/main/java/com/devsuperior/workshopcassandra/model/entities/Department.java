@@ -5,14 +5,19 @@ import java.util.UUID;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-@Table(value = "departaments")
-public class Departament {
-    @PrimaryKey
+@Table(value = "departments")
+public class Department {
+
+	@PrimaryKey
 	private UUID id;
 	private String name;
-
-	public Departament() {
-
+	
+	public Department() {
+	}
+	
+	public Department(UUID id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 
 	public UUID getId() {
@@ -30,5 +35,4 @@ public class Departament {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }
